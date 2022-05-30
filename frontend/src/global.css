@@ -1,0 +1,90 @@
+/* @import "../assets/global.css"; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Work Sans", sans-serif;
+  /* text-rendering: geometricPrecision; */
+  height: 100vh;
+  color: black;
+}
+
+.tab-lifted.tab-active {
+  --tab-border-color: "#555555";
+  --tab-border: 1px;
+  --tab-radius: 16px;
+}
+
+.tab-lifted {
+  color: #000;
+  --tab-radius: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+main::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+main {
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE 11 */
+}
+
+button,
+input,
+a,
+div {
+  transition: all 0.5s;
+}
+
+button:active,
+button:focus,
+input:active,
+input:focus,
+select:active,
+select:focus {
+  outline: unset;
+}
+
+.btn-disabled,
+.btn[disabled] {
+  color: #eeeeee !important;
+  background-color: #aaaaaa !important;
+}
+
+.boxshadow {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+}
+
+@keyframes loadingmove {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes loadingmove {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.loading {
+  border-radius: 50%;
+  animation: loadingmove 1.2s linear infinite;
+  -webkit-animation: loadingmove 1.2s linear infinite;
+  border-bottom: 3px solid transparent;
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 5 Copy 2</title>
+    <g id="header-menu" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-5-Copy-2">
+            <rect id="Rectangle" fill="#627EEA" x="0" y="0" width="24" height="24" rx="4"></rect>
+            <g id="Ethereum-icon-purple" transform="translate(6.750000, 3.000000)" fill-rule="nonzero">
+                <polygon id="Path" fill="white" points="5.52405322 -5.81815956e-16 0 9.16683726 5.52405322 6.65609007"></polygon> 
+                <polygon id="Path" fill="#C0CBF6" points="5.52405322 6.65609007 0 9.16683726 5.52405322 12.432958"></polygon>
+                <polygon id="Path" fill="#C0CBF6" points="11.04913 9.16683726 5.52405322 -5.81815956e-16 5.52405322 6.65609007"></polygon>
+                <polygon id="Path" fill="#8197EE" points="5.52405322 12.432958 11.04913 9.16683726 5.52405322 6.65609007"></polygon>
+                <polygon id="Path" fill="white" points="0 10.2149437 5.52405322 18 5.52405322 13.4790174"></polygon>
+                <polygon id="Path" fill="#C0CBF6" points="5.52405322 13.4790174 5.52405322 18 11.0522006 10.2149437"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
