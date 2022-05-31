@@ -18,7 +18,8 @@
     "dotenv": "^10.0.0",
     "fastify": "^3.25.2",
     "fastify-cors": "^6.0.2",
-    "node-schedule": "^2.1.0"
+    "node-schedule": "^2.1.0",
+    "string-table": "^0.1.5"
   },
   "devDependencies": {
     "@types/node": "^16.11.17",

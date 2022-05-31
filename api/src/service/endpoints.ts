@@ -1,6 +1,6 @@
-import axios, {type AxiosRequestConfig} from 'axios';
+import {type AxiosRequestConfig} from 'axios';
 
-type Endpoint = {
+export type Endpoint = {
   name: string;
   urls: string[];
   preprocess?: (url: string) => {
@@ -13,13 +13,13 @@ type Endpoint = {
   target?: string;
 };
 
-type EndointHealth = {
+export type EndointHealth = {
   name: string;
   urls: {url: string; health: boolean}[];
   target: string;
 };
 
-const endpoints: Endpoint[] = [
+export const endpoints: Endpoint[] = [
   {
     name: 'AW LOGO',
     urls: [
@@ -149,81 +149,9 @@ const endpoints: Endpoint[] = [
   },
 ];
 
-const defaultTarget =
-  'https://discord.com/api/webhooks/877382890634219591/vqfy2BQGr8yrolpImVQ0uYmTp7wEgR3WjEUGdbxJNaEo34WSg_PH4ct6-PE0aH8PymeU';
+export const defaultTarget =
+  'https://discord.com/api/webhooks/911164461560262687/A9BwlXJ4fDO2dvbN285164Vv7WcfvMdXQgucy7HJhc07nrLlf2g5PoTgZGpWznuRGobv';
 
-function statusCode200(response: any): boolean {
+export function statusCode200(response: any): boolean {
   return response.status === 200;
 }
-
-async function checkingUrls(endpoint: Endpoint) {
-  const urlsHealth: {url: string; health: boolean}[] = [];
-  const urlCheckers = endpoint.urls.map((url: string) => {
-    if (!endpoint.preprocess) {
-      return axios.get(url);
-    } else {
-      const result = endpoint.preprocess(url);
-      if (result.method === 'get') {
-        return axios.get(result.url, result.config);
-      } else {
-        return axios.post(result.url, result.data, result.config);
-      }
-    }
-  });
-  const results = await Promise.allSettled(urlCheckers);
-  results.forEach((result, index) => {
-    if (result.status === 'rejected') {
-      urlsHealth.push({url: endpoint.urls[index], health: false});
-    } else {
-      urlsHealth.push({
-        url: endpoint.urls[index],
-        health: endpoint.expected
-          ? endpoint.expected(result.value)
-          : statusCode200(result.value),
-      });
-    }
-  });
-  return urlsHealth;
-}
-
-export async function checking() {
-  const endpointsHealth: EndointHealth[] = [];
-  const checkers = endpoints.map(checkingUrls);
-  const results = await Promise.allSettled(checkers);
-  results.forEach((result, index) => {
-    const endpoint = endpoints[index];
-    if (result.status === 'rejected') {
-      endpointsHealth.push({
-        name: endpoint.name,
-        urls: endpoint.urls.map(url => {
-          return {url, health: false};
-        }),
-        target: endpoints[index].target || defaultTarget,
-      });
-    } else {
-      endpointsHealth.push({
-        name: endpoint.name,
-        urls: result.value,
-        target: endpoints[index].target || defaultTarget,
-      });
-    }
-  });
-
-  return endpointsHealth;
-}
-
-// export function sendUnhealthyServicesReports(endpointsHealth: EndointHealth[]) {
-//   const reports: {[key: string]: {name: string; url: string}[]} = {};
-//   endpointsHealth.forEach(endpoint => {
-//     const unhealthyUrls = endpoint.urls.filter(url => !url.health);
-//     if (unhealthyUrls && unhealthyUrls.length) {
-//       unhealthyUrls.forEach(url => {
-//         if (!reports[endpoint.target]) {
-//           reports[endpoint.target] = [];
-//         }
-//         reports[endpoint.target].push({name: endpoint.name, url: url.url});
-//       });
-//     }
-//   });
-//   Object.keys(reports).forEach(key => {});
-// }

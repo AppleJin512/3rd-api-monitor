@@ -1,8 +1,5 @@
 import {startApiServer} from './server';
+import {scheduleCheckingEveryFiveMinutes} from './service/monitor';
 
 startApiServer();
-
-// import {checking} from './service/endpoints';
-// checking().then(value => {
-//   console.log(JSON.stringify(value));
-// });
+scheduleCheckingEveryFiveMinutes();

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {stringTable} from '../constant';
 
 function formatForDiscord(title: string, body: string) {
   return `${title}\n\`\`\`${body}\`\`\``;
@@ -14,4 +15,12 @@ export function sendStringToDiscord(
   targetChannel: string
 ) {
   send(formatForDiscord(title, body), targetChannel);
+}
+
+export function sendObjToDiscord(
+  title: string,
+  body: any,
+  targetChannel: string
+) {
+  sendStringToDiscord(title, stringTable.create(body), targetChannel);
 }
