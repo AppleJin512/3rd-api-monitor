@@ -48,3 +48,13 @@ The properties ends with `?` can be ignored, when it is missing, the default val
 - preprocess, a normal get request.
 - expected, to check if the response status is 200.
 - target, default discord channel.
+
+## How to run it locally
+
+1. go to `api`:
+   - `npm i` (first time only)
+   - `npm start`
+2. go to `frontend`:
+   - `npm i` (first time only)
+   - change `baseURL` in `frontend/src/services/Constants.ts` to `http://localhost:3106/health`
+   - `npm run dev`
