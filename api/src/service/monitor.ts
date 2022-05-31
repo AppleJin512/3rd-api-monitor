@@ -42,7 +42,7 @@ async function checkingUrls(endpoint: Endpoint) {
   return urlsHealth;
 }
 
-async function checking() {
+export async function checking() {
   const endpointsHealth: EndointHealth[] = [];
   const checkers = endpoints.map(checkingUrls);
   const results = await Promise.allSettled(checkers);
