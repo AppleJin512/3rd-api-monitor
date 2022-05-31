@@ -10,6 +10,7 @@ A monitor for 3rd services health
 
 1. go to `api/src/service/endpoints.ts`
 1. add an item to `endpoints` following the `Endpoint` DSL.
+1. run `api` (see below) and visit `http://localhost:3106/health-now`
 
 The explaination of `Endpoint`:
 
@@ -54,7 +55,7 @@ The properties ends with `?` can be ignored, when it is missing, the default val
 1. go to `api`:
    - `npm i` (first time only)
    - `npm start`
-2. go to `frontend`:
+1. go to `frontend`:
    - `npm i` (first time only)
    - change `baseURL` in `frontend/src/services/Constants.ts` to `http://localhost:3106/health`
    - `npm run dev`

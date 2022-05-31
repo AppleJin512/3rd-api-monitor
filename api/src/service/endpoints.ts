@@ -153,7 +153,7 @@ export const endpoints: Endpoint[] = [
       'https://rinkeby-api.opensea.io/api/v1/assets/?owner=0xbc8dAfeacA658Ae0857C80D8Aa6dE4D487577c63&order_by=pk&order_direction=asc&limit=50&offset=25',
     ],
     expected: (response: any) => {
-      return response.data.assets != null;
+      return response.data.assets !== null;
     },
   },
 ];
