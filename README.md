@@ -12,7 +12,7 @@ A monitor for 3rd services health
 1. add an item to `endpoints` following the `Endpoint` DSL.
 1. run `api` (see below) and visit `http://localhost:3106/health-now`
 
-The explaination of `Endpoint`:
+The explanation of `Endpoint`:
 
 ```ts
 type Endpoint = {
