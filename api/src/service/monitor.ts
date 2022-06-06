@@ -16,7 +16,7 @@ const theLatestThree: {
   health: EndpointHealth[];
 }[] = [];
 let currentOffset = 0;
-let stability = {} as EndpointStability;
+const stability = {} as EndpointStability;
 
 function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -122,8 +122,8 @@ export function generateFinalMonitorReport() {
     const name = health.name;
     const target = health.target;
     const urls = health.urls.map((url, index2) => {
-      let responseTime: number = 0;
-      let count: number = 0;
+      let responseTime = 0;
+      let count = 0;
       theLatestThree.map(theLatestItem => {
         if (theLatestItem.health[index1].urls[index2].health) {
           responseTime +=
