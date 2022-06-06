@@ -13,11 +13,15 @@ export type Endpoint = {
   target?: string;
 };
 
-export type EndointHealth = {
+export type EndpointHealth = {
   name: string;
-  urls: {url: string; health: boolean}[];
+  urls: {url: string; health: boolean; responseTime: number}[];
   target: string;
 };
+
+export interface EndpointStability {
+  [index: string]: number;
+}
 
 export const endpoints: Endpoint[] = [
   {

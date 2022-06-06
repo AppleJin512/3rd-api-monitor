@@ -29,6 +29,8 @@
   "dependencies": {
     "axios": "0.21.1",
     "daisyui": "^1.25.3",
-    "dayjs": "^1.11.2"
+    "dayjs": "^1.11.2",
+    "node-sass": "^7.0.1",
+    "svelte-materialify": "^0.3.11"
   }
 }
