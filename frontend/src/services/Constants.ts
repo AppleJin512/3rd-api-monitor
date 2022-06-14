@@ -1,1 +1,1 @@
-export const baseURL = "https://doobtvjcpb8dc.cloudfront.net/health";
+export const baseURL = "https://d2sc5n1wf6rato.cloudfront.net/health";
