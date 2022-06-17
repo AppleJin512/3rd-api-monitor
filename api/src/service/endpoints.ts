@@ -97,7 +97,7 @@ export const endpoints: Endpoint[] = [
       'https://arbitrum-mainnet.infura.io/v3/{infuraKey}',
     ],
     preprocess: (url: string) => {
-      const u = url.replace(/{infuraKey}/g, '3f22e503f06448d89617f6b9b252865e')
+      const u = url.replace(/{infuraKey}/g, '3f22e503f06448d89617f6b9b252865e');
       return {
         url: `${u}?module=account&action=tokentx&address=0x007bEe82BDd9e866b2bd114780a47f2261C684E3`,
         method: 'post',
