@@ -80,6 +80,7 @@ export const endpoints: Endpoint[] = [
       'https://sokol.poa.network',
       'https://goerli.infura.io/v3/3f22e503f06448d89617f6b9b252865e',
       'https://rpc.xdaichain.com',
+      'https://rpc.ankr.com/gnosis',
       'https://rpc.sigma1.artis.network',
       'https://rpc.tau1.artis.network',
       'https://bsc-dataseed1.binance.org:443',
