@@ -79,7 +79,6 @@ export const endpoints: Endpoint[] = [
       'https://core.poa.network',
       'https://sokol.poa.network',
       'https://goerli.infura.io/v3/{infuraKey}',
-      'https://rpc.xdaichain.com',
       'https://rpc.ankr.com/gnosis',
       'https://rpc.sigma1.artis.network',
       'https://rpc.tau1.artis.network',
