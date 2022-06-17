@@ -165,7 +165,7 @@ export const endpoints: Endpoint[] = [
 ];
 
 export const defaultTarget =
-  'https://discord.com/api/webhooks/911164461560262687/A9BwlXJ4fDO2dvbN285164Vv7WcfvMdXQgucy7HJhc07nrLlf2g5PoTgZGpWznuRGobv';
+  'https://discord.com/api/webhooks/987237143577522176/E-EA5RPbSYFpLe4XCje2FDh0M4G0KQBPY_hAd4-TRQC9AyTPgnX2DP5fC9mVMgPP-QI6';
 
 export function statusCode200(response: any): boolean {
   return response.status === 200;
