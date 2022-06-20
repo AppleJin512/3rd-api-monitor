@@ -48,7 +48,6 @@ export const endpoints: Endpoint[] = [
       'https://blockscout.com/poa/xdai/api',
       'https://blockscout.com/poa/sokol/api',
       'https://explorer.sigma1.artis.network/api',
-      'https://explorer.tau1.artis.network/api',
       'https://api.bscscan.com/api',
       'https://api-testnet.bscscan.com/api',
       'https://api-testnet.hecoinfo.com/api',
