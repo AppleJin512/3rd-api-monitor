@@ -11,12 +11,18 @@ export type Endpoint = {
   };
   expected?: (response: any) => boolean;
   target?: string;
+  /**
+   * If set to true, no message will be sent to target
+   * default: false
+   */
+  ignore?: boolean;
 };
 
 export type EndpointHealth = {
   name: string;
   urls: {url: string; health: boolean; responseTime: number}[];
   target: string;
+  ignore?: boolean;
 };
 
 export interface EndpointStability {

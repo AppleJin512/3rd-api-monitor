@@ -81,12 +81,14 @@ export async function checking() {
           return {url, health: false, responseTime: -1};
         }),
         target: endpoints[index].target || defaultTarget,
+        ignore: endpoints[index].ignore,
       });
     } else {
       endpointsHealth.push({
         name: endpoint.name,
         urls: result.value,
         target: endpoints[index].target || defaultTarget,
+        ignore: endpoints[index].ignore,
       });
     }
   });
@@ -121,6 +123,7 @@ export function generateFinalMonitorReport() {
   theLatestThree[0].health.forEach((health, index1) => {
     const name = health.name;
     const target = health.target;
+    const ignore = health.ignore;
     const urls = health.urls.map((url, index2) => {
       let responseTime = 0;
       let count = 0;
@@ -140,7 +143,7 @@ export function generateFinalMonitorReport() {
         responseTime: count === 0 ? -1 : responseTime / count,
       };
     });
-    return finalHealth.push({name, target, urls});
+    return finalHealth.push({name, target, urls, ignore});
   });
   return {timestamp, health: finalHealth, stability};
 }
@@ -153,20 +156,22 @@ export function sendUnhealthyServicesReports(
   }
 
   const reports: {[key: string]: {name: string; url: string}[]} = {};
-  endpointsHealth.forEach(endpoint => {
-    const unhealthyUrls = endpoint.urls.filter(url => !url.health);
-    if (unhealthyUrls && unhealthyUrls.length) {
-      unhealthyUrls.forEach(url => {
-        if (!reports[endpoint.target]) {
-          reports[endpoint.target] = [];
-        }
-        reports[endpoint.target].push({name: endpoint.name, url: url.url});
-      });
-    }
-  });
+  endpointsHealth
+    .filter(endpoint => !endpoint.ignore)
+    .forEach(endpoint => {
+      const unhealthyUrls = endpoint.urls.filter(url => !url.health);
+      if (unhealthyUrls && unhealthyUrls.length) {
+        unhealthyUrls.forEach(url => {
+          if (!reports[endpoint.target]) {
+            reports[endpoint.target] = [];
+          }
+          reports[endpoint.target].push({name: endpoint.name, url: url.url});
+        });
+      }
+    });
 
   Object.keys(reports).forEach(key => {
-    sendObjToDiscord('Unavaliable Services', reports[key], key);
+    sendObjToDiscord('Unavailable Services', reports[key], key);
   });
 }
 

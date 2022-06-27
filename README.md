@@ -9,8 +9,8 @@ A monitor for 3rd services health
 ## How to add a new endpoint?
 
 1. go to `api/src/service/endpoints.ts`
-1. add an item to `endpoints` following the `Endpoint` DSL.
-1. run `api` (see below) and visit `http://localhost:3026/health-now`
+2. add an item to `endpoints` following the `Endpoint` DSL.
+3. run `api` (see below) and visit `http://localhost:3206/health-now`
 
 The explanation of `Endpoint`:
 
@@ -49,6 +49,7 @@ The properties ends with `?` can be ignored, when it is missing, the default val
 - preprocess, a normal get request.
 - expected, to check if the response status is 200.
 - target, default discord channel.
+- ignore, when set to true, will not send message to target. default is false
 
 ## How to run it locally
 
@@ -57,5 +58,5 @@ The properties ends with `?` can be ignored, when it is missing, the default val
    - `npm start`
 1. go to `frontend`:
    - `npm i` (first time only)
-   - change `baseURL` in `frontend/src/services/Constants.ts` to `http://localhost:3026/health`
+   - change `baseURL` in `frontend/src/services/Constants.ts` to `http://localhost:3206/health`
    - `npm run dev`
